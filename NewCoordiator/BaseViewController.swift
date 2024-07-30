@@ -27,7 +27,7 @@ class BaseViewController: UIViewController {
     weak var backDelegate: BaseViewControllerNavigation?
     
     deinit {
-        print(self)
+        print("deinit: \(self)")
     }
     
     func addBackPresentRootViewController(style: BaseViewController.BackButtonStyle = .back) {

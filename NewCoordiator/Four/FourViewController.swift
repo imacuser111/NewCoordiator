@@ -1,20 +1,19 @@
 //
-//  ThreeViewController.swift
+//  FourViewController.swift
 //  NewCoordiator
 //
-//  Created by Cheng-Hong on 2024/7/26.
+//  Created by Cheng-Hong on 2024/7/30.
 //
 
 import UIKit
 
-protocol ThreeViewControllerNavigation: BaseCoordinatorProtocol {
+protocol FourViewControllerNavigation: BaseCoordinatorProtocol {
     // Add here functions to navigate away from this screen, to ask the Coordinator to show another screen
-    func showStep2()
 }
 
-class ThreeViewController: BaseViewController {
+class FourViewControllerController: BaseViewController {
 
-    weak var coordinator: ThreeViewControllerNavigation?
+    weak var coordinator: FourViewControllerNavigation?
     
     // MARK: - Private Properties
     
@@ -25,27 +24,17 @@ class ThreeViewController: BaseViewController {
         addBackPresentRootViewController()
         
         title = "three"
-        view.backgroundColor = .purple
+        view.backgroundColor = .blue
         
         let btn = UIButton()
         btn.setTitle("toRoot", for: .normal)
         btn.frame = .init(x: 100, y: 100, width: 50, height: 50)
         btn.addTarget(self, action: #selector(toRoot), for: .touchUpInside)
         view.addSubview(btn)
-        
-        let btn2 = UIButton()
-        btn2.setTitle("showStep2", for: .normal)
-        btn2.frame = .init(x: 200, y: 100, width: 50, height: 50)
-        btn2.addTarget(self, action: #selector(showStep2), for: .touchUpInside)
-        view.addSubview(btn2)
     }
     
     // MARK: - Internal Funcs
     @objc func toRoot() {
         self.coordinator?.toRoot()
-    }
-    
-    @objc func showStep2() {
-        self.coordinator?.showStep2()
     }
 }

@@ -11,19 +11,12 @@ protocol TutorialCoordinatorDelegate: AnyObject {
     func dismissTutorial()
 }
 
-class TutorialCoordinator: Coordinator {
-    let components: CoordinatorComponents
+class TutorialCoordinator: BaseCoordinator {
     weak var delegate: TutorialCoordinatorDelegate?
     
-    deinit {
-        print(self)
-    }
-    
-    init(components: CoordinatorComponents) {
-        self.components = components
-    }
-    
-    func start(modalSetup: ViewControllerInitialSetup & ViewControllerModalSetup) {
+    override func start(modalSetup: ViewControllerInitialSetup & ViewControllerModalSetup) {
+        
+        components.mainViewController.transitioningDelegate = self
         
         let step1VC = TutoStep1ViewController()
         step1VC.coordinator = self

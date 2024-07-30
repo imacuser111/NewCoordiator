@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7D98542C58971C0016A457 /* WKPresentTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D98532C58971C0016A457 /* WKPresentTransition.swift */; };
+		CE7D98572C58BF980016A457 /* FourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D98562C58BF980016A457 /* FourViewController.swift */; };
+		CE7D98592C58C0000016A457 /* FourCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7D98582C58C0000016A457 /* FourCoordinator.swift */; };
 		CEE53DFF2C4F91CE0040F1AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE53DFE2C4F91CE0040F1AC /* AppDelegate.swift */; };
 		CEE53E012C4F91CE0040F1AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE53E002C4F91CE0040F1AC /* SceneDelegate.swift */; };
 		CEE53E032C4F91CE0040F1AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE53E022C4F91CE0040F1AC /* ViewController.swift */; };
@@ -45,6 +48,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE7D98532C58971C0016A457 /* WKPresentTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKPresentTransition.swift; sourceTree = "<group>"; };
+		CE7D98562C58BF980016A457 /* FourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourViewController.swift; sourceTree = "<group>"; };
+		CE7D98582C58C0000016A457 /* FourCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourCoordinator.swift; sourceTree = "<group>"; };
 		CEE53DFB2C4F91CE0040F1AC /* NewCoordiator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewCoordiator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE53DFE2C4F91CE0040F1AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE53E002C4F91CE0040F1AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +100,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE7D98552C58BF740016A457 /* Four */ = {
+			isa = PBXGroup;
+			children = (
+				CE7D98562C58BF980016A457 /* FourViewController.swift */,
+				CE7D98582C58C0000016A457 /* FourCoordinator.swift */,
+			);
+			path = Four;
+			sourceTree = "<group>";
+		};
 		CEE53DF22C4F91CE0040F1AC = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +132,7 @@
 		CEE53DFD2C4F91CE0040F1AC /* NewCoordiator */ = {
 			isa = PBXGroup;
 			children = (
+				CE7D98552C58BF740016A457 /* Four */,
 				CEF4A20E2C5356820028C3D2 /* Three */,
 				CEF4A2042C4FABB60028C3D2 /* TutoStep */,
 				CEE53DFE2C4F91CE0040F1AC /* AppDelegate.swift */,
@@ -125,6 +141,7 @@
 				CEE53E072C4F91D00040F1AC /* Assets.xcassets */,
 				CEE53E092C4F91D00040F1AC /* LaunchScreen.storyboard */,
 				CEE53E0C2C4F91D00040F1AC /* Info.plist */,
+				CE7D98532C58971C0016A457 /* WKPresentTransition.swift */,
 				CEE53E2E2C4F94B70040F1AC /* Coordinator.swift */,
 				CEF4A2132C5358860028C3D2 /* AppCoordinator.swift */,
 				CEF4A2172C538AC10028C3D2 /* BaseViewController.swift */,
@@ -300,8 +317,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE7D98592C58C0000016A457 /* FourCoordinator.swift in Sources */,
 				CEF4A20C2C4FAC770028C3D2 /* TutoStep2ViewController.swift in Sources */,
 				CEF4A2082C4FAC5B0028C3D2 /* TutoStep1ViewController.swift in Sources */,
+				CE7D98572C58BF980016A457 /* FourViewController.swift in Sources */,
 				CEF974A92C539BA600C8174C /* BaseCoordinator.swift in Sources */,
 				CEE53E032C4F91CE0040F1AC /* ViewController.swift in Sources */,
 				CEF4A2102C5356A30028C3D2 /* ThreeViewController.swift in Sources */,
@@ -312,6 +331,7 @@
 				CEE53E012C4F91CE0040F1AC /* SceneDelegate.swift in Sources */,
 				CEE53E2F2C4F94B70040F1AC /* Coordinator.swift in Sources */,
 				CEF4A2122C5358660028C3D2 /* ThreeCoordinator.swift in Sources */,
+				CE7D98542C58971C0016A457 /* WKPresentTransition.swift in Sources */,
 				CEF4A2142C5358860028C3D2 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

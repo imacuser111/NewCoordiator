@@ -16,15 +16,13 @@ class ThreeCoordinator: BaseCoordinator {
     
     weak var delegate: TutorialCoordinatorDelegate?
     
-    deinit {
-        print(self)
-    }
-    
 //    init(components: CoordinatorComponents) {
 //        self.components = components
 //    }
     
     override func start(modalSetup: ViewControllerInitialSetup & ViewControllerModalSetup) {
+        components.mainViewController.transitioningDelegate = self
+        
         let threeVC = ThreeViewController()
         threeVC.coordinator = self
         threeVC.backDelegate = self
@@ -37,12 +35,18 @@ extension ThreeCoordinator: ThreeViewControllerNavigation {
     func showStep2() {
         let vc = ThreeStep2ViewController()
         vc.coordinator = self
-        components.mainViewController.pushViewController(vc, animated: true)
+        self.pushViewController(vc, animated: true)
     }
 }
 
 extension ThreeCoordinator: ThreeStep2ViewControllerNavigation {
     func closeTutorial() {
         self.dismissChildCoordinator(animated: false)
+    }
+    
+    func showFour() {
+        let coordinator = FourCoordinator(components: .init(parentCoordinator: self))
+//        coordinator.delegate = self
+        self.present(childCoordinator: coordinator)
     }
 }

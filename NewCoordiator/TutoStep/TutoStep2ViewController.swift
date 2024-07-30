@@ -7,14 +7,11 @@ protocol TutoStep2ViewControllerNavigation: AnyObject {
     func pushTreeCoordinator()
 }
 
-final class TutoStep2ViewController: UIViewController {
+final class TutoStep2ViewController: BaseViewController {
     
     weak var coordinator: TutoStep2ViewControllerNavigation?
     
     // MARK: - Private Properties
-    deinit {
-        print(self)
-    }
     
     // MARK: - Setup
     

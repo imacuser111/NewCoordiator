@@ -89,15 +89,27 @@ public extension Coordinator {
         self.components.childCoordinators.removeAll()
     }
     
-    func dismissToRoot(completion: (() -> Void)? = nil) {
-        self.dismissLoop(parentCoordinator: self.components.parentCoordinator)
+    func dismissToRoot(coordinatorType: Coordinator.Type, completion: (() -> Void)? = nil) {
+        self.dismissLoop(coordinatorType: coordinatorType, parentCoordinator: self.components.parentCoordinator)
     }
     
-    fileprivate func dismissLoop(parentCoordinator: Coordinator?) {
+    fileprivate func dismissLoop(coordinatorType: Coordinator.Type, parentCoordinator: Coordinator?, animated: Bool = true) {
+        
+        self.components.childCoordinators.removeAll()
+        
+        // 找到要回到的coordinator，從他的mainViewController dimiss
+        if String(describing: type(of: self)) == String(describing: coordinatorType) {
+            self.components.mainViewController.dismiss(animated: animated)
+            
+            return
+        }
+        
         if let parentCoordinator {
-            parentCoordinator.dismissChildCoordinator(animated: false) {
-                parentCoordinator.dismissLoop(parentCoordinator: parentCoordinator.components.parentCoordinator)
-            }
+            // 隱藏前一個畫面(例：1 -> 2 -> 3, now is 3, 隱藏2, 但因為要回到1, 所以不能隱藏1)
+            self.components.mainViewController.presentingViewController?.view.isHidden = String(describing: type(of: parentCoordinator)) != String(describing: coordinatorType)
+            
+            // 遞迴
+            parentCoordinator.dismissLoop(coordinatorType: coordinatorType, parentCoordinator: parentCoordinator.components.parentCoordinator)
         } else {
             print("ParentCoordinator is nil")
         }
