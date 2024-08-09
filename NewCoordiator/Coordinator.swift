@@ -89,16 +89,16 @@ public extension Coordinator {
         self.components.childCoordinators.removeAll()
     }
     
-    func dismissToRoot(coordinatorType: Coordinator.Type, completion: (() -> Void)? = nil) {
+    func dismissToRoot<C: Coordinator>(coordinatorType: C.Type, completion: (() -> Void)? = nil) {
         self.dismissLoop(coordinatorType: coordinatorType, parentCoordinator: self.components.parentCoordinator)
     }
     
-    fileprivate func dismissLoop(coordinatorType: Coordinator.Type, parentCoordinator: Coordinator?, animated: Bool = true) {
+    fileprivate func dismissLoop<C: Coordinator>(coordinatorType: C.Type, parentCoordinator: Coordinator?, animated: Bool = true) {
         
         self.components.childCoordinators.removeAll()
         
         // 找到要回到的coordinator，從他的mainViewController dimiss
-        if String(describing: type(of: self)) == String(describing: coordinatorType) {
+        if self is C {
             self.components.mainViewController.dismiss(animated: animated)
             
             return

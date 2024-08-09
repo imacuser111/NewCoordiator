@@ -33,7 +33,7 @@ class BaseCoordinator: NSObject, Coordinator, BaseViewControllerNavigation {
     }
     
     func toRoot() {
-        self.dismissToRoot(coordinatorType: TutorialCoordinator.self)
+        self.dismissToRoot(coordinatorType: AppCoordinator.self)
     }
 }
 
